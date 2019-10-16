@@ -1,0 +1,11 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeForeground": "#000",
+    "titleBar.inactiveForeground": "#000000CC",
+    "titleBar.activeBackground": "#7D59EE",
+    "titleBar.inactiveBackground": "#7D59EE"
+  },
+  "cSpell.ignoreWords": [
+    "niiice"
+  ]
+}
