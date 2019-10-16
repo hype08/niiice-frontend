@@ -4,6 +4,7 @@ import Link from 'next/link'
 const Nav = () => {
   return (
     <>
+    < br/>
       <div>
         <Link href="sell">
           <a>Sell</a>
