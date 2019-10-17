@@ -4,15 +4,12 @@ import styled from 'styled-components';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 
-Router.onRouteChangeStart = () => {
-  NProgress.start();
-}
-Router.onRouterChangeComplete = () => {
-  NProgress.done()
-}
-Router.onRouteChangeError = () => {
-  NProgress.done()
-}
+Router.events.on('routeChangeStart', url => {
+  console.log(`Loading: ${url}`)
+  NProgress.start()
+})
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
 
 const Logo = styled.h1`
   font-size: 4rem;
