@@ -1,8 +1,8 @@
-# dependencies
-/node_modules
-
-# misc
+node_modules/
 .DS_Store
-
-# next files
-/.next
+*.log
+haters/
+.next/
+.build/
+layout.md
+.env
