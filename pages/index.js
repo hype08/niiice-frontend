@@ -1,12 +1,10 @@
-import Link from 'next/link'
-import Items from '../components/Items'
+import Link from 'next/link';
+import Items from '../components/Items';
 
-const index = () => {
-  return (
-    <div>
-      <Items />
-    </div>
-  )
-}
+const index = () => (
+  <div>
+    <Items />
+  </div>
+);
 
-export default index
+export default index;

@@ -1,15 +1,15 @@
-import Nav from './Nav'
-import Link from 'next/link'
+import Link from 'next/link';
 import styled from 'styled-components';
 import Router from 'next/router';
 import NProgress from 'nprogress';
+import Nav from './Nav';
 
 Router.events.on('routeChangeStart', url => {
-  console.log(`Loading: ${url}`)
-  NProgress.start()
-})
-Router.events.on('routeChangeComplete', () => NProgress.done())
-Router.events.on('routeChangeError', () => NProgress.done())
+  console.log(`Loading: ${url}`);
+  NProgress.start();
+});
+Router.events.on('routeChangeComplete', () => NProgress.done());
+Router.events.on('routeChangeError', () => NProgress.done());
 
 const Logo = styled.h1`
   font-size: 4rem;
@@ -49,23 +49,23 @@ const StyledHeader = styled.header`
   }
 `;
 
-const Header = () => {
-  return (
-    <StyledHeader>
-      <div className="bar">
-        <Logo>
-          <Link href="/">
-            <a>Niiice Store</a>
-          </Link>
-        </Logo>
-        <Nav />
-      </div>
-      <div className="sub-bar">
-        <p>Search</p>
-      </div>
-      <div><p>Cart</p></div>
-    </StyledHeader>
-  )
-}
+const Header = () => (
+  <StyledHeader>
+    <div className="bar">
+      <Logo>
+        <Link href="/">
+          <a>Niiice Store</a>
+        </Link>
+      </Logo>
+      <Nav />
+    </div>
+    <div className="sub-bar">
+      <p>Search</p>
+    </div>
+    <div>
+      <p>Cart</p>
+    </div>
+  </StyledHeader>
+);
 
-export default Header
+export default Header;

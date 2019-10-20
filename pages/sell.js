@@ -1,9 +1,5 @@
 import CreateItem from '../components/CreateItem';
 
-const sell = () => {
-  return (
-    <CreateItem />
-  )
-}
+const sell = () => <CreateItem />;
 
-export default sell
+export default sell;
