@@ -20,9 +20,9 @@ const SINGLE_ITEM_QUERY = gql`
 const UPDATE_ITEM_MUTATION = gql`
   mutation UPDATE_ITEM_MUTATION(
     $id: ID!,
-    $title: String!
-    $description: String!
-    $price: Int!
+    $title: String
+    $description: String
+    $price: Int
   ) {
     updateItem(
       id: $id,
@@ -66,7 +66,7 @@ class UpdateItem extends Component {
         query={SINGLE_ITEM_QUERY}
         variables={{
           id: this.props.id,
-        }}
+        }} 
       >
         {({ data, loading }) => {
           if (loading) return <p>Loading...</p>;
@@ -87,10 +87,11 @@ class UpdateItem extends Component {
                         name="title"
                         placeholder="Title"
                         required
-                        value={this.state.title}
+                        defaultValue={data.item.title}
                         onChange={this.handleChange}
                       />
                     </label>
+
                     <label htmlFor="price">
                       Price
                       <input
@@ -99,23 +100,24 @@ class UpdateItem extends Component {
                         name="price"
                         placeholder="Price"
                         required
-                        value={this.state.price}
+                        defaultValue={data.item.price}
                         onChange={this.handleChange}
                       />
                     </label>
+
                     <label htmlFor="description">
                       Description
-                      <input
+                      <textarea
                         type="text"
                         id="description"
                         name="description"
                         placeholder="Enter a Description"
                         required
-                        value={this.state.description}
+                        defaultValue={data.item.description}
                         onChange={this.handleChange}
                       />
                     </label>
-                    <button type="submit">Sav{loading ? 'ing' : 'e'}</button>
+                    <button type="submit">{loading? null : 'Hit ' } Sav{loading ? 'ing' : 'e'}</button>
                   </fieldset>
                 </Form>
               )}
