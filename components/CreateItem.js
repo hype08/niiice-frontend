@@ -42,15 +42,18 @@ class CreateItem extends Component {
   };
 
   uploadFile = async e => {
-    const files = e.target.files;
+    const { files } = e.target;
     const data = new FormData();
     data.append('file', files[0]);
     data.append('upload_preset', 'niiice');
 
-    const res = await fetch('https://api.cloudinary.com/v1_1/hype08/image/upload', {
-      method: 'POST',
-      body: data,
-    });
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/hype08/image/upload',
+      {
+        method: 'POST',
+        body: data,
+      }
+    );
     const file = await res.json();
     this.setState({
       image: file.secure_url,
@@ -90,10 +93,14 @@ class CreateItem extends Component {
                   onChange={this.uploadFile}
                 />
                 {this.state.image && (
-                  <img width="200" src={this.state.image} alt="Upload Preview" />
+                  <img
+                    width="200"
+                    src={this.state.image}
+                    alt="Upload Preview"
+                  />
                 )}
               </label>
-              
+
               <label htmlFor="title">
                 Title
                 <input
